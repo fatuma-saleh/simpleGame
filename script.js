@@ -20,4 +20,7 @@ let checkDead = setInterval(function () {
 }, 10);
 if(blockLeft<20 && blockLeft>0 && charTop>=130){
 block.style.animation = "none"
+block.style.display = "none"
+alert("You Lose")
+
 }
