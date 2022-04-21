@@ -1,7 +1,7 @@
-let character = document.getElementById("characters");
+let character = document.getElementById("character");
 let block = document.getElementById("block");
 const jump = function () {
-  if (character.classList != "animate") {
+  if (character.classList !== "animate") {
     character.classList.add("animate");
   }
   setTimeout(function () {
@@ -17,10 +17,10 @@ let checkDead = setInterval(function () {
   let blockLeft = parseInt(
     window.getComputedStyle(block).getPropertyValue("left")
   );
-}, 10);
-if(blockLeft<20 && blockLeft>0 && charTop>=130){
-block.style.animation = "none"
-block.style.display = "none"
-alert("You Lose")
 
-}
+  if (blockLeft < 20 && blockLeft > 0 && charTop >= 130) {
+    block.style.animation = "none";
+    block.style.display = "none";
+    alert("You Lose");
+  }
+}, 10);
