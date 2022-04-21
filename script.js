@@ -1,14 +1,23 @@
 let character = document.getElementById("characters");
-let block = document.getElementById("block")
-const jump = function(){
-  if(character.classList!="animate"){
-  character.classList.add("animate")
+let block = document.getElementById("block");
+const jump = function () {
+  if (character.classList != "animate") {
+    character.classList.add("animate");
   }
-  setTimeout(function() {
+  setTimeout(function () {
+    character.classList.remove("animate");
+  }, 500);
+};
 
-   character.classList.remove("animate");} ,500)
+let checkDead = setInterval(function () {
+  let charTop = parseInt(
+    window.getComputedStyle(character).getPropertyValue("top")
+  );
 
-  let checkDead = setInterval(function(){
-   let charTop = parseInt( window.getComputedStyle(character).getPropertyValue("top"))
-  },10)
+  let blockLeft = parseInt(
+    window.getComputedStyle(block).getPropertyValue("left")
+  );
+}, 10);
+if(blockLeft<20 && blockLeft>0 && charTop>=130){
+block.style.animation = "none"
 }
